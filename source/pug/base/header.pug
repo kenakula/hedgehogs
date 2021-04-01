@@ -1,35 +1,66 @@
-mixin header(headerMod, currentPage)
+mixin header(currentPage, headerMod)
+
   -
-    var headerLinks = [
-      {
-        href: "#",
-        text: "Страница 1"
-      },
-      {
-        href: "#",
-        text: "Страница 2"
-      },
-      {
-        href: "#",
-        text: "Страница 3"
-      },
-    ]
+    const mainNav = {
+      links: [
+        {
+          "id": "0",
+          "name": "Каталог",
+          "url": "#",
+        },
+        {
+          "id": "10",
+          "name": "О нас",
+          "url": "#",
+        },
+        {
+          "id": "20",
+          "name": "Контакты",
+          "url": "#",
+        },
+        {
+          "id": "30",
+          "name": "Галерея",
+          "url": "#",
+        },
+      ],
+      phones: [
+        {
+          name: '+7 (965) 569-89-98',
+          tel: '+79655698998',
+        },
+      ]
+    };
 
   header(class=(headerMod) ? "header header--" + headerMod : "header")
-    .header__wrapper
-      if(currentPage === "main")
-        a.header__logo Логотип
-      else
-        a.header__logo(href="main.html", aria-label="Переход на главную") Логотип
-      nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
-        .main-nav__wrapper
+    .header__wrapper.container.container--wide
+      if (currentPage === "main")
+        a.header__logo
+          img(src="img/svg/logo.svg", width="121", height="56", alt="логотип сайта")
+        nav.main-nav.header__nav#mainNav
+          +toggler("Открыть меню", "mainNav", "main-nav--expanded")#toggler
           ul.main-nav__list
-            each link, index in headerLinks
-              if(index === currentPage)
-                li
-                  a.main-nav__link.main-nav__link--active=link.text
-              else
-                li
-                  a.main-nav__link(href=link.href)=link.text
+            each menuItem in mainNav.links
+              +main-nav-item(menuItem)
+          ul.main-nav__phones
+            each item in mainNav.phones
+              +main-nav-phone(item)
+        .header__phones
+          ul
+            li
+              a(href="tel:+79655698998")
+                span
+                  +icon("icon-phone", 32, 32)
+                | +7 (965) 569-89-98
+        .header__cart
+          button(type="button", id="cart-button")
+            +icon("icon-basket", 45, 38)
+            span 1
+
+mixin main-nav-item(item)
+  li
+    a(href=item.url) !{item.name}
+
+mixin main-nav-phone(item)
+  li
+    a(href=`tel:${item.tel}`) !{item.name}

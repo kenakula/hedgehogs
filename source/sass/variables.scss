@@ -11,17 +11,36 @@ $color-transparent:               rgba(255, 255, 255, 0);
 // Base
 
 $color-black:                     #0e0e0e;
+$color-juniper:                   #70908b;
 $color-white:                     #f2f2f2;
-$color-blue:                      #2c39f2;
+$color-silver:                    #c4c4c4;
+$color-porcelain:                 #eaeeef;
+$color-zanah:                     #e2f0df;
+$color-sandy:                     #ffedcd;
+$color-blue-stone:                #195557;
+
+
+$color-shadow:                    #c2ccca;
 
 // Gradient
 
 $black-to-right:                    linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+$gradient-vertical:                 linear-gradient(1.36deg, #b0d3ce 12.29%, #ffedce 83.89%);
+$gradient-hover:                    linear-gradient(#b0d3ce, #ffedce);
+
+// Shadows
+
+$box-shadow-default: 4px 4px 20px 0 $color-shadow, -8px -8px 20px 0 $color-default-white;
+$box-shadow-short: 4px 4px 20px 0 $color-shadow, -4px -4px 20px 0 $color-default-white;
 
 // Typography
 //---------------------------------
 
-$font-family--:                     "", "Arial", sans-serif;
+$font-main-regular:                 "Railway-regular", "Helvetica ", serif;
+$font-main-medium:                  "Railway-medium", "Helvetica ", serif;
+$font-main-bold:                    "Railway-bold", "Helvetica ", serif;
+$font-title-regular:                "Cormorant-Infant-regular", "Georgia", serif;
+$font-title-bold:                   "Cormorant-Infant-bold", "Georgia", serif;
 
 // Animation
 //---------------------------------
@@ -37,6 +56,8 @@ $viewport--md:                      768px;
 $viewport--lg:                      1024px;
 $viewport--xl:                      1440px;
 $viewport--xxl:                     1920px;
+
+$container:                         1197px;
 
 // Retina
 //---------------------------------
