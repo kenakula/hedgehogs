@@ -16,6 +16,7 @@ $color-white:                     #f2f2f2;
 $color-silver:                    #c4c4c4;
 $color-porcelain:                 #eaeeef;
 $color-zanah:                     #e2f0df;
+$color-gainsboro:                 #e3e3e3;
 $color-sandy:                     #ffedcd;
 $color-blue-stone:                #195557;
 
@@ -46,6 +47,8 @@ $font-title-bold:                   "Cormorant-Infant-bold", "Georgia", serif;
 //---------------------------------
 
 $default-transition-settings:       0.3s ease;
+$default-transition-timing:         0.3s;
+$default-transition-ease:           ease;
 $modal-transition-settings:         0.6s cubic-bezier(0.55, 0, 0.1, 1);
 
 // Viewports
@@ -64,3 +67,11 @@ $container:                         1197px;
 
 $retina-dpi:                        144dpi;
 $retina-dppx:                       1.5dppx;
+
+// Z-Indexes
+//---------------------------------
+
+$header-index:                      10;
+$logo-index:                        11;
+$nav-index:                         10;
+$toggler-index:                     12;

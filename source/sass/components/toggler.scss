@@ -1,0 +1,70 @@
+.toggler {
+  @include button-reset;
+
+  position: absolute;
+  top: 32px;
+  left: 20px;
+  z-index: $toggler-index;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 14px;
+  -webkit-tap-highlight-color: $color-transparent;
+  outline: none;
+
+  &::before {
+    @include pseudo;
+
+    left: -10px;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+
+  span {
+    @include transition(background);
+
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $color-blue-stone;
+
+    &::before,
+    &::after {
+      @include pseudo;
+
+      width: 100%;
+      height: 2px;
+      background-color: $color-blue-stone;
+      transition: transform $default-transition-settings;
+    }
+
+    &::before {
+      transform: translateY(-6px);
+    }
+
+    &::after {
+      transform: translateY(6px);
+    }
+  }
+
+  &--close {
+    span {
+      background-color: $color-transparent;
+
+      &::before {
+        transform: translateY(0) rotate(45deg);
+      }
+
+      &::after {
+        transform: translateY(0) rotate(-45deg);
+      }
+    }
+  }
+
+  @include viewport--sm {
+    display: flex;
+  }
+}

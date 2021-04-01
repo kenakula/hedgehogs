@@ -37,25 +37,28 @@ mixin header(currentPage, headerMod)
       if (currentPage === "main")
         a.header__logo
           img(src="img/svg/logo.svg", width="121", height="56", alt="логотип сайта")
-        nav.main-nav.header__nav#mainNav
-          +toggler("Открыть меню", "mainNav", "main-nav--expanded")#toggler
-          ul.main-nav__list
-            each menuItem in mainNav.links
-              +main-nav-item(menuItem)
-          ul.main-nav__phones
-            each item in mainNav.phones
-              +main-nav-phone(item)
-        .header__phones
-          ul
-            li
-              a(href="tel:+79655698998")
-                span
-                  +icon("icon-phone", 32, 32)
-                | +7 (965) 569-89-98
-        .header__cart
-          button(type="button", id="cart-button")
-            +icon("icon-basket", 45, 38)
-            span 1
+      else
+        a.header__logo(href="main.html")
+          img(src="img/svg/logo.svg", width="121", height="56", alt="логотип сайта")
+      +toggler("Открыть меню", "mainNav", "main-nav--expanded")#toggler
+      nav.main-nav.header__nav.js-main-nav#mainNav
+        ul.main-nav__list
+          each menuItem in mainNav.links
+            +main-nav-item(menuItem)
+        ul.main-nav__phones
+          each item in mainNav.phones
+            +main-nav-phone(item)
+      .header__phones
+        ul.header__phones-list
+          li
+            a(href="tel:+79655698998")
+              span.header__phones-icon
+                +icon("icon-phone", 32, 32)
+              | +7 (965) 569-89-98
+      .header__cart
+        button(type="button", id="cart-button")
+          +icon("icon-basket", 45, 38)
+          span 1
 
 mixin main-nav-item(item)
   li

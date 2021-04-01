@@ -1,3 +1,168 @@
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 35px 0;
+  width: 100vw;
 
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    @include transition(opacity);
+
+    &[href] {
+      @include min-desktop {
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    @include viewport--sm {
+      position: absolute;
+      z-index: $logo-index;
+      left: 50%;
+      top: 25px;
+      transform: translateX(-50%);
+
+      img {
+        width: 56px;
+        height: 26px;
+      }
+    }
+  }
+
+  &__nav {
+    margin-left: auto;
+  }
+
+  &__phones {
+    margin-right: 4.444%;
+    margin-left: 7.333%;
+    padding-bottom: 4px;
+
+    @include viewport--sm {
+      margin-left: auto;
+    }
+  }
+
+  &__phones-list {
+    @include list-reset;
+
+    display: flex;
+    flex-direction: column;
+
+    li {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        @include font(22, 25);
+        @include transition(color);
+
+        display: flex;
+        align-items: center;
+        font-family: $font-main-medium;
+        font-weight: 500;
+        color: $color-blue-stone;
+
+        @include min-desktop {
+          &:hover {
+            color: rgba($color: $color-blue-stone, $alpha: 0.7);
+
+            .header__phones-icon {
+              box-shadow: 8px 8px 20px 0 $color-shadow, -4px -4px 20px 0 $color-default-white;
+            }
+          }
+        }
+
+        @include viewport--md {
+          font-size: 0;
+        }
+      }
+    }
+  }
+
+  &__phones-icon {
+    @include transition(box-shadow);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    width: 69px;
+    height: 69px;
+    border-radius: 50%;
+    box-shadow: $box-shadow-short;
+    background: $gradient-vertical;
+
+    @include viewport--md {
+      margin: 0;
+      width: 35px;
+      height: 35px;
+
+      svg {
+        width: 13px;
+        height: 11px;
+      }
+    }
+  }
+
+  &__cart {
+    position: relative;
+
+    button {
+      @include button-reset;
+      @include transition(opacity);
+
+      span {
+        @include font(10, 12);
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        background-color: $color-sandy;
+        font-family: $font-main-bold;
+        font-weight: 700;
+      }
+
+      @include min-desktop {
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    @include viewport--sm {
+      button {
+        svg {
+          width: 32px;
+          height: 27px;
+        }
+
+        span {
+          @include font(8, 9);
+
+          width: 13px;
+          height: 13px;
+        }
+      }
+    }
+  }
+
+  @include viewport--sm {
+    padding: 20px 0;
+  }
 }

@@ -21,6 +21,11 @@
 @import "blocks/footer";
 @import "blocks/modal";
 
+// Components
+//---------------------------------
+
+@import "components/main-nav";
+@import "components/toggler";
 
 // используйте это для отключения ховеров на тач устройствах
 // ! но не используйте это для текстовых полей ( input, textarea )

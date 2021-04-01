@@ -32,6 +32,12 @@
 
 // Mobile first
 
+@mixin min-desktop {
+  @media (min-width: $viewport--lg) {
+    @content;
+  }
+}
+
 /* @mixin viewport--md {
   @media (min-width: $viewport--md) {
     @content;
