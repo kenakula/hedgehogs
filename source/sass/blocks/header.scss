@@ -1,17 +1,23 @@
 .header {
   position: fixed;
+  z-index: $header-index;
   top: 0;
   left: 0;
-  padding: 35px 0;
   width: 100vw;
+  padding-top: 26px;
+  min-height: 135px;
 
   &__wrapper {
     display: flex;
     align-items: center;
+    padding: 0 60px;
   }
 
   &__logo {
     @include transition(opacity);
+
+    align-self: flex-start;
+    margin-top: 9px;
 
     &[href] {
       @include min-desktop {
@@ -37,12 +43,15 @@
 
   &__nav {
     margin-left: auto;
+    align-self: stretch;
+    padding-top: 18px;
   }
 
   &__phones {
+    align-items: stretch;
     margin-right: 4.444%;
-    margin-left: 7.333%;
-    padding-bottom: 4px;
+    margin-left: 7.5%;
+    padding-top: 22px;
 
     @include viewport--sm {
       margin-left: auto;
@@ -116,6 +125,7 @@
 
   &__cart {
     position: relative;
+    margin-top: 16px;
 
     button {
       @include button-reset;

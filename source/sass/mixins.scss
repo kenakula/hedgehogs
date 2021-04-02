@@ -137,14 +137,14 @@
 }
 
 @mixin make-adaptive-bg($image-path, $imageType) {
-  background-image: url(""+$image-path+"@1x."+$imageType);
+  background-image: url(""+$image-path+$imageType);
 
   @include retina {
     background-image: url(""+$image-path+"@2x."+$imageType);
   }
 
   .webp & {
-    background-image: url(""+$image-path+"@1x.webp");
+    background-image: url(""+$image-path+".webp");
 
     @include retina {
       background-image: url(""+$image-path+"@2x.webp");

@@ -20,10 +20,12 @@
 @import "blocks/header";
 @import "blocks/footer";
 @import "blocks/modal";
+@import "blocks/promo";
 
 // Components
 //---------------------------------
 
+@import "components/button";
 @import "components/main-nav";
 @import "components/toggler";
 

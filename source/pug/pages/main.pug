@@ -1,7 +1,7 @@
 extends ../base/layout
 
 block data
-  include ../data/placeholder
+  include ../data/main-page
 
 block variables
   - var title = "ЁЖИКИ | Интернет магазин колючих котиков";
@@ -14,7 +14,31 @@ block variables
 
 block main
   main
-    .container
+    section.promo
+      .promo__bg
+        +imgAdaptiveSvg(promoBg)
+      .promo__inner.container
+        .promo__info
+          h1.visually-hidden Ёжики - магазин ежиков
+          //- p.promo__title Ёжики
+          .promo__title
+            +imgSvg(siteName)
+          p.promo__subtitle Тоже любят молоко
+          small.promo__small Заведите себе ёжика. Он всегда выслушает, не будет мяукать в 5 утра и царапать вашу мебель.
+          button.button.promo__button(type="button") Купить ёжика
+      .promo__img.promo__img--left
+        +img(promoHedgehog1)
+      .promo__img.promo__img--right
+        +img(promoHedgehog2)
+      .promo__list
+        ul
+          each item in promoList
+            li.promo__list-item
+              .promo__list-icon
+                - const icon = item.icon;
+                +icon(icon.name, icon.width, icon.height)
+              h3.promo__list-title !{item.title}
+              p.promo__list-text !{item.text}
 
 block modals
   +modal("modal--feedback")

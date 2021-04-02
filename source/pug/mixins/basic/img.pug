@@ -1,2 +1,11 @@
-mixin img(path, image, format, width, height, altText)
+mixin img({path, image, format, width, height, altText})
   img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", width= width, height= height, alt= altText)
+
+mixin imgSvg({path, image, format, width, height, altText})
+  img(src="img/" + path + "/" + image + "." + format, width= width, height= height, alt= altText)
+
+mixin imgAdaptive({path, image, format, altText})
+  img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", alt= altText)
+
+mixin imgAdaptiveSvg({path, image, format, altText})
+  img(src="img/" + path + "/" + image + "." + format, alt= altText)
