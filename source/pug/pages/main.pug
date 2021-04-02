@@ -40,6 +40,19 @@ block main
               h3.promo__list-title !{item.title}
               p.promo__list-text !{item.text}
 
+    section.slider-block
+      h2.visually-hidden Наши ёжики
+      .slider-block__wrapper.container.js-slider-block-container#mainSlider
+        .slider-block__container.swiper-container
+          .slider-block__list.swiper-wrapper
+            each item in mainSlider
+              +card(item).slider-block__card
+        button.slider-block__button.slider-block__button--prev(type="button")
+          +icon('icon-arrow-left', 24, 24)
+        button.slider-block__button.slider-block__button--next(type="button")
+          +icon('icon-arrow-left', 24, 24)
+
+
 block modals
   +modal("modal--feedback")
     +modal-feedback()

@@ -1,16 +1,24 @@
 .header {
+  @include transition(background);
+
   position: fixed;
   z-index: $header-index;
   top: 0;
   left: 0;
   width: 100vw;
   padding-top: 26px;
+  padding-bottom: 20px;
   min-height: 135px;
+
+  .is-scrolled & {
+    background-color: $color-default-white;
+  }
 
   &__wrapper {
     display: flex;
     align-items: center;
     padding: 0 60px;
+    max-width: none;
   }
 
   &__logo {

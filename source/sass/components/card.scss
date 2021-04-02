@@ -1,0 +1,141 @@
+.card {
+  position: relative;
+  display: flex;
+  padding: 54px 59px;
+  max-width: 570px;
+  min-height: 397px;
+  border-radius: 20px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    max-width: 210px;
+  }
+
+  &__title {
+    @include font(40, 48);
+
+    margin: 0;
+    font-family: $font-title-bold;
+    font-weight: 700;
+    color: $color-blue-stone;
+  }
+
+  &__text {
+    @include font(14, 22);
+
+    margin: 0;
+    color: $color-default-black;
+  }
+
+  &__prices {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+  }
+
+  &__current-price {
+    @include font(40, 48);
+
+    font-family: $font-title-bold;
+    font-weight: 700;
+    color: $color-blue-stone;
+
+    span {
+      font-weight: 400;
+    }
+  }
+
+  &__old-price {
+    @include font(20, 24);
+
+    position: relative;
+    align-self: flex-start;
+    font-family: $font-title-bold;
+    font-weight: 700;
+    color: $color-geyser;
+
+    &::before {
+      @include pseudo;
+
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 2px;
+      background-color: $color-geyser;
+      transform: translateY(-50%);
+    }
+
+    span {
+      font-weight: 400;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 33px;
+    right: 0;
+    width: 363px;
+    padding-top: 265px;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    top: 19px;
+    right: 28px;
+
+    button {
+      @include button-reset;
+    }
+  }
+
+  &__tooltip-content {
+    position: absolute;
+    display: none;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 70px;
+    height: 70px;
+    background-color: $color-default-white;
+    border-radius: 0 0 20px 0;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+
+    button {
+      @include button-reset;
+    }
+  }
+
+  &__discount {
+    @include font(20, 24);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 69px;
+    top: -6px;
+    min-width: 68px;
+    min-height: 36px;
+    font-family: $font-main-bold;
+    font-weight: 700;
+    color: $color-default-white;
+    background-color: $color-juniper;
+  }
+}
