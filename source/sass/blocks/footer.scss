@@ -1,6 +1,126 @@
 .footer {
-  min-height: 100px;
-  padding: 0 60px;
+  padding: 50px 0 30px;
+  background-color: $color-juniper;
 
-  background-color: $color-blue;
+  &__wrapper {
+    max-width: none;
+    padding: 0 60px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  &__logo {
+    @include transition(opacity);
+
+    &[href] {
+      @include min-desktop {
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    @include viewport--sm {
+      img {
+        width: 56px;
+        height: 26px;
+      }
+    }
+  }
+
+  &__nav {
+    margin-left: auto;
+    margin-right: 100px;
+
+    @include viewport--lg {
+      margin-right: 50px;
+    }
+  }
+
+  &__nav-list {
+    @include list-reset;
+
+    display: flex;
+
+    li {
+      display: flex;
+      margin-right: 90px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        @include font(16, 19);
+        @include transition(opacity);
+
+        font-family: $font-title-bold;
+        font-weight: 700;
+        color: $color-default-white;
+        text-transform: uppercase;
+        line-height: 20px;
+
+        @include min-desktop {
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+
+    @include viewport--lg {
+      li {
+        margin-right: 30px;
+      }
+    }
+  }
+
+  &__socials {
+    margin-right: 70px;
+  }
+
+  &__phones-list {
+    @include list-reset;
+
+    display: flex;
+    flex-direction: column;
+
+    li {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        @include font(22, 25);
+        @include transition(opacity);
+
+        display: flex;
+        align-items: center;
+        font-family: $font-main-medium;
+        font-weight: 500;
+        color: $color-default-white;
+
+        @include min-desktop {
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    p {
+      @include font(9, 12);
+
+      margin: 0;
+      color: $color-default-white;
+    }
+  }
 }

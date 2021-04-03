@@ -11,22 +11,47 @@ $color-transparent:               rgba(255, 255, 255, 0);
 // Base
 
 $color-black:                     #0e0e0e;
+$color-juniper:                   #70908b;
 $color-white:                     #f2f2f2;
-$color-blue:                      #2c39f2;
+$color-white-smoke:               #f1f1f1;
+$color-silver:                    #c4c4c4;
+$color-porcelain:                 #eaeeef;
+$color-zanah:                     #e2f0df;
+$color-gainsboro:                 #e3e3e3;
+$color-sandy:                     #ffedcd;
+$color-geyser:                    #c2ccca;
+$color-blue-stone:                #195557;
+$color-flame:                     #e16036;
+
+
+$color-shadow:                    #c2ccca;
 
 // Gradient
 
 $black-to-right:                    linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+$gradient-vertical:                 linear-gradient(1.36deg, #b0d3ce 12.29%, #ffedce 83.89%);
+$gradient-hover:                    linear-gradient(90.14deg, #b0d3ce -2.41%, #ffedce 99.79%);
+
+// Shadows
+
+$box-shadow-default: 4px 4px 20px 0 $color-shadow, -8px -8px 20px 0 $color-default-white;
+$box-shadow-short: 4px 4px 20px 0 $color-shadow, -4px -4px 20px 0 $color-default-white;
 
 // Typography
 //---------------------------------
 
-$font-family--:                     "", "Arial", sans-serif;
+$font-main-regular:                 "Railway-regular", "Helvetica ", serif;
+$font-main-medium:                  "Railway-medium", "Helvetica ", serif;
+$font-main-bold:                    "Railway-bold", "Helvetica ", serif;
+$font-title-regular:                "Cormorant-Infant-regular", "Georgia", serif;
+$font-title-bold:                   "Cormorant-Infant-bold", "Georgia", serif;
 
 // Animation
 //---------------------------------
 
 $default-transition-settings:       0.3s ease;
+$default-transition-timing:         0.3s;
+$default-transition-ease:           ease;
 $modal-transition-settings:         0.6s cubic-bezier(0.55, 0, 0.1, 1);
 
 // Viewports
@@ -38,8 +63,18 @@ $viewport--lg:                      1024px;
 $viewport--xl:                      1440px;
 $viewport--xxl:                     1920px;
 
+$container:                         1197px;
+
 // Retina
 //---------------------------------
 
 $retina-dpi:                        144dpi;
 $retina-dppx:                       1.5dppx;
+
+// Z-Indexes
+//---------------------------------
+
+$header-index:                      11;
+$logo-index:                        12;
+$nav-index:                         11;
+$toggler-index:                     12;

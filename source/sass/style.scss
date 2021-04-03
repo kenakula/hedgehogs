@@ -2,7 +2,7 @@
 //---------------------------------
 
 @import "vendor/normalize";
-// @import "vendor/swiper";
+@import "vendor/swiper";
 
 // Global
 //---------------------------------
@@ -20,7 +20,20 @@
 @import "blocks/header";
 @import "blocks/footer";
 @import "blocks/modal";
+@import "blocks/promo";
+@import "blocks/slider-block";
+@import "blocks/request";
+@import "blocks/disclaimer";
 
+// Components
+//---------------------------------
+
+@import "components/button";
+@import "components/main-nav";
+@import "components/toggler";
+@import "components/card";
+@import "components/form";
+@import "components/socials";
 
 // используйте это для отключения ховеров на тач устройствах
 // ! но не используйте это для текстовых полей ( input, textarea )

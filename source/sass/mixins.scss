@@ -32,6 +32,12 @@
 
 // Mobile first
 
+@mixin min-desktop {
+  @media (min-width: $viewport--lg) {
+    @content;
+  }
+}
+
 /* @mixin viewport--md {
   @media (min-width: $viewport--md) {
     @content;
@@ -55,3 +61,93 @@
     @content;
   }
 } */
+
+// Utils
+
+@function rem($size) {
+  @return $size / 16 * 1rem;
+}
+
+@mixin font($font-size, $line-height) {
+  font-size: rem($font-size);
+  line-height: rem($line-height);
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin button-reset {
+  display: block;
+  border: none;
+  padding: 0;
+  background-color: $color-transparent;
+  cursor: pointer;
+}
+
+@mixin transition($property: all) {
+  transition: $property $default-transition-settings;
+}
+
+@mixin full-width-vw {
+  margin-left: calc(-100vw / 2 + 100% / 2);
+  margin-right: calc(-100vw / 2 + 100% / 2);
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin make-adaptive-bg($image-path, $imageType) {
+  background-image: url(""+$image-path+$imageType);
+
+  @include retina {
+    background-image: url(""+$image-path+"@2x."+$imageType);
+  }
+
+  .webp & {
+    background-image: url(""+$image-path+".webp");
+
+    @include retina {
+      background-image: url(""+$image-path+"@2x.webp");
+    }
+  }
+}

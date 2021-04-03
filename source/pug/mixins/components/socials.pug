@@ -1,0 +1,8 @@
+mixin socials(data)
+  .socials&attributes(attributes)
+    ul.socials__list
+      each item in data
+        - const icon = item.icon;
+        li
+          a(href=item.href, aria-label=item.name)
+            +icon(icon.name, icon.width, icon.height)

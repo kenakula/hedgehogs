@@ -1,32 +1,96 @@
 extends ../base/layout
 
 block data
-  include ../data/placeholder
+  include ../data/main-page
 
 block variables
-  - var title = "ProjectName — Главная"
-  - var wrapperMod = ""
-  - var hasHeader = true
-  - var headerMod = ""
-  - var hasFooter = true
-  - var footerMod = ""
-  - var currentPage = "main" //- для остальных страниц пишем либо пустую строку, либо индекс
+  - var title = "ЁЖИКИ | Интернет магазин колючих котиков";
+  - var wrapperMod = "";
+  - var hasHeader = true;
+  - var headerMod = "";
+  - var hasFooter = true;
+  - var footerMod = "";
+  - var currentPage = "main"; //- для остальных страниц пишем либо пустую строку, либо индекс
 
 block main
   main
-    .container
-      p(style="margin-top: 40px;") Пример вызова модалок
-      p
-        a(href="#", data-modal="feedback") modal--feedback link
-      p
-        a(href="#", data-modal="success") modal--success link
+    section.promo
+      .promo__bg
+        +imgAdaptiveSvg(promoBg)
+      .promo__inner.container
+        .promo__info
+          h1.visually-hidden Ёжики - магазин ежиков
+          //- p.promo__title Ёжики
+          .promo__title
+            +imgSvg(siteName)
+          p.promo__subtitle Тоже любят молоко
+          small.promo__small Заведите себе ёжика. Он всегда выслушает, не будет мяукать в 5 утра и царапать вашу мебель.
+          button.button.promo__button(type="button") Купить ёжика
+        .promo__list
+          ul
+            each item in promoList
+              li.promo__list-item
+                .promo__list-icon
+                  - const icon = item.icon;
+                  +icon(icon.name, icon.width, icon.height)
+                h3.promo__list-title !{item.title}
+                p.promo__list-text !{item.text}
+      .promo__img.promo__img--left
+        +img(promoHedgehog1)
+      .promo__img.promo__img--right
+        +img(promoHedgehog2)
 
-      p(style="margin-top: 40px;") Пример импорта из `pug/data`
-      h3= heading.title
-      i= heading.description
+    section.slider-block
+      h2.visually-hidden Наши ёжики
+      .slider-block__wrapper.container.js-slider-block-container#mainSlider
+        .slider-block__container.swiper-container
+          .slider-block__list.swiper-wrapper
+            each item in mainSlider
+              +card(item).slider-block__card
+        button.slider-block__button.slider-block__button--prev(type="button")
+          +icon('icon-arrow-left', 24, 24)
+        button.slider-block__button.slider-block__button--next(type="button")
+          +icon('icon-arrow-left', 24, 24)
 
-      p(style="margin-top: 40px;") Пример использования +img()
-      +img("content", "placeholder", "jpg", 250, 250, "Пример")
+    section.request
+      .container
+        .request__inner
+          h2 Заполните заявку и мы забронируем для Вас нового друга
+          form.request__form.form.js-form(action="#", method="POST")
+            .form__inner.form__inner--top
+              .form__radios.form__radios--target
+                input.visually-hidden(type="radio", name="target", id="target-1", checked)
+                label.button.button--radio(for="target-1") хочу ёжика для себя
+                input.visually-hidden(type="radio", name="target", id="target-2")
+                label.button.button--radio(for="target-2") хочу ёжика для детей
+                input.visually-hidden(type="radio", name="target", id="target-3")
+                label.button.button--radio(for="target-3") хочу ёжика для разведения
+              .form__radios.form__radios--amount
+                input.visually-hidden(type="radio", name="amount", id="amount-1", checked)
+                label(for="amount-1") Мне нужен 1-2 ёжика
+                input.visually-hidden(type="radio", name="amount", id="amount-2")
+                label(for="amount-2") Мне нужны 3 и более ёжиков
+                input.visually-hidden(type="radio", name="amount", id="amount-3")
+                label(for="amount-3") Мне нужны 3-4 ёжика
+                input.visually-hidden(type="radio", name="amount", id="amount-4")
+                label(for="amount-4") Пока присматриваюсь
+            .form__inner.form__inner--bottom
+              input(type="text", name="name", placeholder="Ваше имя")
+              input(type="tel", name="tel", placeholder="Ваш телефон")
+              input(type="email", name="email", placeholder="Ваш e-mail")
+              textarea(name="comment", cols="30", rows="10", placeholder="Комментарий к заявке")
+            button.button(type="submit") Купить ёжика
+
+    .disclaimer
+      .container.disclaimer__inner
+        .disclaimer__title
+          +icon('icon-hedgehog-colored', 41, 41)
+          h2 У наc осталось еще: <span>25 ёжиков</span>
+        p Торопитесь! Акция действует до 26. 02. 2023
+
+
+
+
 
 block modals
   +modal("modal--feedback")

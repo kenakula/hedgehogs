@@ -1,0 +1,56 @@
+.button {
+  @include button-reset;
+  @include font(14, 18);
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 328px;
+  min-height: 69px;
+  border-radius: 40px;
+  font-family: $font-main-bold;
+  font-weight: 700;
+  color: $color-default-white;
+  background: $color-juniper;
+  box-shadow: $box-shadow-default;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: background $default-transition-settings, color $default-transition-settings;
+  outline: none;
+
+  &::after {
+    @include pseudo;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-image: $gradient-hover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity $default-transition-settings, background $default-transition-settings;
+  }
+
+  @include min-desktop {
+    &:hover {
+      background-color: $color-transparent;
+      color: $color-blue-stone;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &--radio {
+    padding: 0 27px;
+    min-width: auto;
+    border: 2px solid $color-juniper;
+    color: $color-juniper;
+    background-color: $color-default-white;
+    box-shadow: none;
+  }
+}
