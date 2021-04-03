@@ -1,2 +1,101 @@
 mixin footer(footerMod)
+  -
+    const logo = {
+      path: 'svg',
+      image: 'logo-footer',
+      format: 'svg',
+      altText: 'логотип сайта',
+    };
+
+    const footerNav = {
+      links: [
+        {
+          "id": "0",
+          "name": "Каталог",
+          "url": "#",
+        },
+        {
+          "id": "10",
+          "name": "О нас",
+          "url": "#",
+        },
+        {
+          "id": "20",
+          "name": "Контакты",
+          "url": "#",
+        },
+        {
+          "id": "30",
+          "name": "Галерея",
+          "url": "#",
+        },
+      ],
+      phones: [
+        {
+          name: '+7 (965) 569-89-98',
+          tel: '+79655698998',
+        },
+      ]
+    };
+
+    const socialsList = [
+      {
+        name: 'мы в инстаграм',
+        href: '#',
+        icon: {
+          name: 'icon-insta',
+          width: 30,
+          height: 30,
+        },
+      },
+      {
+        name: 'мы в фейсбуке',
+        href: '#',
+        icon: {
+          name: 'icon-fb',
+          width: 30,
+          height: 30,
+        },
+      },
+      {
+        name: 'мы в твиттере',
+        href: '#',
+        icon: {
+          name: 'icon-tw',
+          width: 30,
+          height: 30,
+        },
+      },
+    ];
+
   footer(class= (footerMod) ? "footer footer--" + footerMod : "footer")
+    .footer__wrapper.container.container--wide
+      .footer__top
+        if (currentPage === "main")
+          a.header__logo
+            +imgSvg(logo)
+        else
+          a.header__logo(href="main.html")
+            +imgSvg(logo)
+        .footer__nav
+          ul.footer__nav-list
+            each item in footerNav.links
+              +nav-item(item)
+        +socials(socialsList).footer__socials
+        .footer__phones
+          ul.footer__phones-list
+            each item in footerNav.phones
+              +nav-phone(item)
+      .footer__bottom
+        p Все права защищены.
+        p Указанная стоимость товаров и условия их приобретения действительны на текущую дату.
+
+
+
+mixin nav-item(item)
+  li
+    a(href=item.url) !{item.name}
+
+mixin nav-phone(item)
+  li
+    a(href=`tel:${item.tel}`) !{item.name}

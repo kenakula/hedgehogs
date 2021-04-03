@@ -1,0 +1,38 @@
+.disclaimer {
+  padding: 20px 0 60px;
+
+  &__title {
+    @include font(24, 29);
+
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    padding-left: 60px;
+    max-width: 540px;
+    font-family: $font-title-bold;
+    font-weight: 700;
+    color: $color-blue-stone;
+    text-align: center;
+
+    h2 {
+      margin: 0;
+    }
+
+    svg {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      fill: none;
+    }
+  }
+
+  p {
+    @include font(14, 22);
+
+    margin: 0 auto;
+    max-width: 190px;
+    color: $color-blue-stone;
+    text-align: center;
+  }
+}

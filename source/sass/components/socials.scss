@@ -1,0 +1,33 @@
+.socials {
+  &__list {
+    @include list-reset;
+
+    display: flex;
+
+    li {
+      display: flex;
+      margin-right: 13px;
+      width: 40px;
+      height: 40px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    a {
+      @include transition(opacity);
+
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include min-desktop {
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

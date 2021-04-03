@@ -52,6 +52,44 @@ block main
         button.slider-block__button.slider-block__button--next(type="button")
           +icon('icon-arrow-left', 24, 24)
 
+    section.request
+      .container.request__inner
+        h2 Заполните заявку и мы забронируем для Вас нового друга
+        form.request__form.form.js-form(action="#", method="POST")
+          .form__inner.form__inner--top
+            .form__radios.form__radios--target
+              input.visually-hidden(type="radio", name="target", id="target-1", checked)
+              label.button.button--radio(for="target-1") хочу ёжика для себя
+              input.visually-hidden(type="radio", name="target", id="target-2")
+              label.button.button--radio(for="target-2") хочу ёжика для детей
+              input.visually-hidden(type="radio", name="target", id="target-3")
+              label.button.button--radio(for="target-3") хочу ёжика для разведения
+            .form__radios.form__radios--amount
+              input.visually-hidden(type="radio", name="amount", id="amount-1", checked)
+              label(for="amount-1") Мне нужен 1-2 ёжика
+              input.visually-hidden(type="radio", name="amount", id="amount-2")
+              label(for="amount-2") Мне нужны 3 и более ёжиков
+              input.visually-hidden(type="radio", name="amount", id="amount-3")
+              label(for="amount-3") Мне нужны 3-4 ёжика
+              input.visually-hidden(type="radio", name="amount", id="amount-4")
+              label(for="amount-4") Пока присматриваюсь
+          .form__inner.form__inner--bottom
+            input(type="text", name="name", placeholder="Ваше имя")
+            input(type="tel", name="tel", placeholder="Ваш телефон")
+            input(type="email", name="email", placeholder="Ваш e-mail")
+            textarea(name="comment", cols="30", rows="10", placeholder="Комментарий к заявке")
+          button.button(type="submit") Купить ёжика
+
+    .disclaimer
+      .container.disclaimer__inner
+        .disclaimer__title
+          +icon('icon-hedgehog-colored', 41, 41)
+          h2 У наc осталось еще: <span>25 ёжиков</span>
+        p Торопитесь! Акция действует до 26. 02. 2023
+
+
+
+
 
 block modals
   +modal("modal--feedback")
