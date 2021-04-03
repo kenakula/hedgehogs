@@ -35,6 +35,10 @@
   &__nav {
     margin-left: auto;
     margin-right: 100px;
+
+    @include viewport--lg {
+      margin-right: 50px;
+    }
   }
 
   &__nav-list {
@@ -65,6 +69,12 @@
             opacity: 0.7;
           }
         }
+      }
+    }
+
+    @include viewport--lg {
+      li {
+        margin-right: 30px;
       }
     }
   }

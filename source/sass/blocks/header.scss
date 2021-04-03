@@ -59,7 +59,12 @@
     align-items: stretch;
     margin-right: 4.444%;
     margin-left: 7.5%;
-    padding-top: 22px;
+    padding-top: 8px;
+
+    @include viewport--lg {
+      margin-right: 2.5%;
+      margin-left: 4.5%;
+    }
 
     @include viewport--sm {
       margin-left: auto;

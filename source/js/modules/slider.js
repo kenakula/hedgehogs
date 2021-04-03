@@ -11,13 +11,18 @@ const slider = () => {
           loop: false,
           observeParents: true,
           observer: true,
-          spaceBetween: 37,
+          spaceBetween: 20,
           navigation: {
             prevEl: btns[0],
             nextEl: btns[1],
           },
           speed: 400,
           slidesPerView: 2,
+          breakpoints: {
+            1150: {
+              spaceBetween: 37,
+            },
+          },
         });
       };
 

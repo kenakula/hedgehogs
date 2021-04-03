@@ -1,5 +1,6 @@
 mixin card(data)
   - const {title, text, price, tooltip, img, hasDiscount, discount} = data;
+  - const priceFormat = (num) => { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') + '' }
 
   .swiper-slide.card&attributes(attributes)
     .card__inner
@@ -7,10 +8,10 @@ mixin card(data)
       p.card__text !{text}
       .card__prices
         if hasDiscount
-          .card__old-price !{price.old}
-            span ₽
-        .card__current-price !{price.current}
-          span ₽
+          .card__old-price !{priceFormat(price.old)}
+            span &nbsp;₽
+        .card__current-price !{priceFormat(price.current)}
+          span &nbsp;₽
     .card__img
       +img(img)
     span.card__discount !{discount} %

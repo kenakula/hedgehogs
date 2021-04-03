@@ -8,6 +8,10 @@
 
     &--top {
       margin-bottom: 43px;
+
+      @media (max-width: 1150px) {
+        flex-direction: column;
+      }
     }
 
     &--bottom {
@@ -40,6 +44,20 @@
       input:checked + label {
         color: $color-default-white;
         background: $color-juniper;
+      }
+
+      @include viewport--lg {
+        width: 58%;
+
+        label {
+          padding: 0 20px;
+        }
+      }
+
+      @media (max-width: 1150px) {
+        margin-bottom: 20px;
+        width: 100%;
+        justify-content: space-between;
       }
     }
 
