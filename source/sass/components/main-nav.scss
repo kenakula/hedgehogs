@@ -73,20 +73,23 @@
   @include viewport--sm {
     position: absolute;
     z-index: -1;
+    // display: none;
+    display: flex;
     left: 0;
     top: 8px;
     flex-direction: column;
     align-items: flex-start;
     margin: 0;
-    padding: 100px 40px 40px;
+    padding: 100px 40px 47px;
     width: 93.75vw;
-    min-height: 70vh;
+    min-height: 480px;
     background-color: $color-default-white;
     border-radius: 0 10px 10px 0;
     box-shadow: 4px 4px 20px $color-gainsboro;
     opacity: 0;
-    transform: translateX(-40px) scaleX(0.5);
-    transition: transform $default-transition-settings, opacity $default-transition-settings;
+    transform: translateX(-100%);
+    transition: opacity $default-transition-settings, transform $default-transition-settings;
+    // animation: navShow 0.3s ease-in;
     transform-origin: left;
 
     &__phones {
@@ -96,9 +99,26 @@
 
     &--expanded {
       z-index: $nav-index;
-      display: flex;
+      // display: flex;
       opacity: 1;
-      transform: translate(0) scale(1);
+      transform: translateX(0);
     }
+  }
+}
+
+@keyframes navShow {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: flex;
+    opacity: 0;
+  }
+
+  100% {
+    display: flex;
+    opacity: 1;
   }
 }

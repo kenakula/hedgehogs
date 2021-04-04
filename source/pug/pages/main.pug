@@ -16,11 +16,11 @@ block main
   main
     section.promo
       .promo__bg
-        +imgAdaptiveSvg(promoBg)
+        //- +imgAdaptiveSvg(promoBg)
+        //- +imgAdaptiveSvg(promoBg, promoBgMobile, '1024')
       .promo__inner.container
         .promo__info
           h1.visually-hidden Ёжики - магазин ежиков
-          //- p.promo__title Ёжики
           .promo__title
             +imgSvg(siteName)
           p.promo__subtitle Тоже любят молоко
@@ -64,7 +64,7 @@ block main
                 input.visually-hidden(type="radio", name="target", id="target-2")
                 label.button.button--radio(for="target-2") хочу ёжика для детей
                 input.visually-hidden(type="radio", name="target", id="target-3")
-                label.button.button--radio(for="target-3") хочу ёжика для разведения
+                label.button.button--radio.button--radio-wide(for="target-3") хочу ёжика для разведения
               .form__radios.form__radios--amount
                 input.visually-hidden(type="radio", name="amount", id="amount-1", checked)
                 label(for="amount-1") Мне нужен 1-2 ёжика
