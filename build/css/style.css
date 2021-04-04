@@ -1190,7 +1190,9 @@ button,
   padding-bottom: 20px;
   min-height: 135px; }
   .is-scrolled .header {
-    background-color: #ffffff; }
+    background-color: #ffffff;
+    -webkit-box-shadow: 4px 4px 20px 0 #c2ccca, -8px -8px 20px 0 #ffffff;
+            box-shadow: 4px 4px 20px 0 #c2ccca, -8px -8px 20px 0 #ffffff; }
   .header__wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1271,9 +1273,10 @@ button,
         -webkit-box-align: center;
             -ms-flex-align: center;
                 align-items: center;
-        font-family: "Railway-medium", "Helvetica ", serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 500;
-        color: #195557; }
+        color: #195557;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
         @media (min-width: 1024px) {
           .header__phones-list li a:hover {
             color: rgba(25, 85, 87, 0.7); }
@@ -1508,7 +1511,7 @@ button,
         -webkit-box-align: center;
             -ms-flex-align: center;
                 align-items: center;
-        font-family: "Railway-medium", "Helvetica ", serif;
+        font-family: Arial, Helvetica, sans-serif;
         font-weight: 500;
         color: #ffffff; }
         @media (min-width: 1024px) {
@@ -1728,6 +1731,8 @@ button,
     .promo__bg {
       background-image: url("../img/bg/promo-bg-mobile@2x.png"); } }
   .promo__info {
+    position: relative;
+    z-index: 10;
     margin: 0 auto 150px;
     max-width: 700px; }
     @media (max-width: 1439px) {
@@ -2307,7 +2312,7 @@ button,
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    font-family: "Railway-medium", "Helvetica ", serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 500; }
     .main-nav__phones a {
       color: #195557; }
@@ -2811,7 +2816,10 @@ button,
         margin: 0;
         padding-left: 22px;
         cursor: pointer;
-        letter-spacing: -0.05em; }
+        letter-spacing: -0.05em;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        -webkit-transform: translateZ(0);
+                transform: translateZ(0); }
         .form__radios--amount label:hover {
           opacity: 0.7; }
         .form__radios--amount label:active {
