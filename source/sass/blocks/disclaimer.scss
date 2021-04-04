@@ -1,18 +1,19 @@
 .disclaimer {
-  padding: 20px 0 60px;
+  padding: 20px 0 62px;
 
   &__title {
-    @include font(24, 29);
+    @include font(17, 25);
 
     position: relative;
     margin: 0 auto;
-    margin-bottom: 25px;
-    padding-left: 60px;
-    max-width: 540px;
+    margin-bottom: 31px;
+    padding-left: 95px;
+    max-width: 460px;
     font-family: $font-title-bold;
     font-weight: 700;
     color: $color-blue-stone;
-    text-align: center;
+    // text-align: center;
+    letter-spacing: -0.02em;
 
     h2 {
       margin: 0;
@@ -20,10 +21,15 @@
 
     svg {
       position: absolute;
-      left: 0;
+      left: 47px;
       top: 50%;
       transform: translateY(-50%);
       fill: none;
+    }
+
+    span {
+      @include font(24, 29);
+      text-decoration: underline;
     }
   }
 
@@ -34,5 +40,31 @@
     max-width: 190px;
     color: $color-blue-stone;
     text-align: center;
+  }
+
+  @include viewport--sm {
+    padding-bottom: 53px;
+
+    &__title {
+      margin: 0;
+      margin-bottom: 27px;
+      padding-left: 0;
+      max-width: 215px;
+
+      svg {
+        display: block;
+        position: static;
+        transform: none;
+      }
+
+      h2 {
+        @include font(24, 29);
+      }
+    }
+
+    p {
+      margin: 0;
+      text-align: left;
+    }
   }
 }

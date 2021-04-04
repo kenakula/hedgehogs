@@ -19,6 +19,7 @@
   backface-visibility: hidden;
   transition: background $default-transition-settings, color $default-transition-settings;
   outline: none;
+  -webkit-tap-highlight-color: $color-transparent;
 
   &::after {
     @include pseudo;
@@ -46,11 +47,28 @@
   }
 
   &--radio {
-    padding: 0 27px;
-    min-width: auto;
+    padding: 0 10px;
+    min-width: 170px;
     border: 2px solid $color-juniper;
     color: $color-juniper;
     background-color: $color-default-white;
     box-shadow: none;
+  }
+
+  &--radio-wide {
+    min-width: 199px;
+  }
+
+  @include viewport--sm {
+    min-width: 281px;
+    min-height: 59px;
+
+    &--radio {
+      min-width: 170px;
+    }
+
+    &--radio-wide {
+      min-width: 199px;
+    }
   }
 }

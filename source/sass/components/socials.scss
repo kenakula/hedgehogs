@@ -30,4 +30,19 @@
       }
     }
   }
+
+  @include viewport--sm {
+    &__list {
+      flex-direction: column;
+
+      li {
+        margin-right: 0;
+        margin-bottom: 12px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }

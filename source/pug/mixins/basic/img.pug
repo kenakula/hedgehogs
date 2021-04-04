@@ -7,5 +7,13 @@ mixin imgSvg({path, image, format, width, height, altText})
 mixin imgAdaptive({path, image, format, altText})
   img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", alt= altText)
 
-mixin imgAdaptiveSvg({path, image, format, altText})
-  img(src="img/" + path + "/" + image + "." + format, alt= altText)
+mixin imgAdaptiveSvg(img, mobileImg, viewport)
+
+  if mobileImg
+    - const {path, image, format, altText} = mobileImg;
+    picture
+      source(srcset="img/" + path + "/" + image + "." + format, media=`(max-width: ${viewport})`)
+      img(src="img/" + path + "/" + image + "." + format, alt= altTextMobile)
+  else
+    - const {path, image, format, altText} = img;
+    img(src="img/" + path + "/" + image + "." + format, alt= altText)

@@ -15,11 +15,16 @@ mixin card(data)
     .card__img
       +img(img)
     span.card__discount !{discount} %
-    .card__tooltip
-      button(type="button")
+    .card__tooltip.js-card-tooltip
+      button.js-card-tooltip-button(type="button")
         +icon('icon-info', 37, 37)
-      .card__tooltip-content
-        p !{tooltip}
+      .card__tooltip-content.js-card-tooltip-content
+        div
+          +icon('icon-syringe', 30, 30)
+          span привит
+        div
+          +icon('icon-heart', 30, 30)
+          span 1235
     .card__button
       button(type="button")
         +icon('icon-plus', 40, 40)

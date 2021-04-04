@@ -31,6 +31,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  overflow-x: hidden;
+}
+
 a {
   color: $color-default-black;
   text-decoration: none;

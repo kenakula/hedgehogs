@@ -1,20 +1,36 @@
 .footer {
-  padding: 50px 0 30px;
+  padding: 44px 0 30px;
   background-color: $color-juniper;
 
   &__wrapper {
     max-width: none;
     padding: 0 60px;
+
+    @include viewport--sm {
+      padding: 0 20px;
+    }
   }
 
   &__top {
     display: flex;
     align-items: center;
     margin-bottom: 24px;
+
+    @media (max-width: 1150px) {
+      flex-direction: column;
+    }
+
+    @include viewport--sm {
+      position: relative;
+      align-items: flex-start;
+      margin-bottom: 37px;
+    }
   }
 
   &__logo {
     @include transition(opacity);
+
+    flex-shrink: 0;
 
     &[href] {
       @include min-desktop {
@@ -24,10 +40,18 @@
       }
     }
 
+    @media (max-width: 1150px) {
+      margin-bottom: 20px;
+      padding-left: 14px;
+    }
+
     @include viewport--sm {
+      padding-left: 0;
+      margin-bottom: 62px;
+
       img {
-        width: 56px;
-        height: 26px;
+        width: 121;
+        height: 56px;
       }
     }
   }
@@ -35,9 +59,20 @@
   &__nav {
     margin-left: auto;
     margin-right: 100px;
+    padding-top: 20px;
 
     @include viewport--lg {
       margin-right: 50px;
+    }
+
+    @media (max-width: 1150px) {
+      margin: 0;
+      margin-bottom: 20px;
+      padding: 0;
+    }
+
+    @include viewport--sm {
+      margin-bottom: 48px;
     }
   }
 
@@ -77,10 +112,36 @@
         margin-right: 30px;
       }
     }
+
+    @include viewport--sm {
+      flex-direction: column;
+
+      li {
+        margin-right: 0;
+        margin-bottom: 30px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 
   &__socials {
     margin-right: 70px;
+    padding-top: 20px;
+
+    @media (max-width: 1150px) {
+      margin: 0;
+      margin-bottom: 20px;
+      padding: 0;
+    }
+
+    @include viewport--sm {
+      position: absolute;
+      right: -1px;
+      top: 6px;
+    }
   }
 
   &__phones-list {
@@ -88,6 +149,7 @@
 
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
 
     li {
       margin-bottom: 10px;
@@ -113,6 +175,11 @@
         }
       }
     }
+
+    @media (max-width: 1150px) {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   &__bottom {
@@ -121,6 +188,20 @@
 
       margin: 0;
       color: $color-default-white;
+
+      @include viewport--sm {
+        @include font(11, 14);
+
+        max-width: 265px;
+      }
     }
+  }
+
+  @media (max-width: 1150px) {
+    padding-top: 35px;
+  }
+
+  @include viewport--sm {
+    padding-bottom: 35px;
   }
 }

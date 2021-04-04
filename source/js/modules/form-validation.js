@@ -1,7 +1,9 @@
 import IMask from 'imask';
+import {openModal} from '../utils/modal';
 
 const formsValidation = () => {
   const forms = document.querySelectorAll('.js-form');
+  const successModal = document.querySelector('.modal--success');
 
   class ValidateForm {
     constructor(el) {
@@ -15,7 +17,7 @@ const formsValidation = () => {
         mask: '+{7}(000)000-00-00',
       };
 
-      this.form = el;
+      this.form = el.closest('form');
       this.inputs = this.form.querySelectorAll('input');
       this.submitBtn = this.form.querySelector('button[type="submit"]');
       this.resetBtn = this.form.querySelector('button[type="reset"]');
@@ -46,19 +48,16 @@ const formsValidation = () => {
     }
 
     resetInput(input) {
-      // const container = input.parentElement;
       input.classList.remove(this.invalidClass);
       input.classList.remove(this.validClass);
     }
 
     setInvalid(input) {
-      // const container = input.parentElement;
       this.resetInput(input);
       input.classList.add(this.invalidClass);
     }
 
     setValid(input) {
-      // const container = input.parentElement;
       this.resetInput(input);
       input.classList.add(this.validClass);
     }
@@ -126,10 +125,10 @@ const formsValidation = () => {
       this.errors = [];
 
       this.inputs.forEach((input) => {
-        let error = this.validateInput(input);
+        let message = this.validateInput(input);
 
-        if (error.length) {
-          this.errors.push(error);
+        if (message.length) {
+          this.errors.push(message);
         }
       });
     }
@@ -150,6 +149,7 @@ const formsValidation = () => {
       } else {
         evt.preventDefault();
         this.resetForm();
+        openModal(successModal);
       }
     }
   }

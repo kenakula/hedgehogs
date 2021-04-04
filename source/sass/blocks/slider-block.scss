@@ -11,6 +11,12 @@
     @media (max-width: 1150px) {
       padding: 0 60px;
     }
+
+    @include viewport--sm {
+      max-width: none;
+      padding: 0;
+      padding-left: 20px;
+    }
   }
 
   &__list {
@@ -25,16 +31,27 @@
     &:nth-child(even) {
       background-color: $color-zanah;
     }
+
+    @include viewport--sm {
+      &:last-child {
+        margin-right: 35px;
+      }
+    }
   }
 
   &__button {
     @include button-reset;
+    @include transition(opacity);
 
     position: absolute;
     left: -59px;
     top: 50%;
     transform: translateY(-50%);
     outline: none;
+
+    &:hover {
+      opacity: 0.7;
+    }
 
     &::before {
       @include pseudo;
@@ -72,9 +89,17 @@
         right: 30px;
       }
     }
+
+    @include viewport--sm {
+      display: none;
+    }
   }
 
   @include viewport--md {
     margin-top: 0;
+  }
+
+  @include viewport--sm {
+    padding-bottom: 45px;
   }
 }
