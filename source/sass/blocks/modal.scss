@@ -69,9 +69,27 @@
   }
 
   &__close-btn {
+    @include transition(opacity);
+
     position: absolute;
     top: 15px;
     right: 15px;
+    outline: none;
+
+    &::before {
+      @include pseudo;
+
+      left: -10px;
+      right: -10px;
+      top: -10px;
+      bottom: -10px;
+    }
+
+    @include min-desktop {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
   }
 
   &--responsive {
@@ -103,5 +121,39 @@
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
+  }
+
+  &--success {
+    .modal__content {
+      width: 40vw;
+      border-radius: 20px;
+    }
+
+    p {
+      @include font(40, 48);
+
+      font-family: $font-title-bold;
+      font-weight: 700;
+      text-align: center;
+      color: $color-blue-stone;
+    }
+
+    @include viewport--lg {
+      .modal__content {
+        width: 60vw;
+      }
+    }
+
+    @include viewport--md {
+      .modal__content {
+        width: 80vw;
+      }
+    }
+
+    @include viewport--lg {
+      p {
+        @include font(25, 32);
+      }
+    }
   }
 }

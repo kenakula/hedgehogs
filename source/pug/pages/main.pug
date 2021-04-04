@@ -16,8 +16,6 @@ block main
   main
     section.promo
       .promo__bg
-        //- +imgAdaptiveSvg(promoBg)
-        //- +imgAdaptiveSvg(promoBg, promoBgMobile, '1024')
       .promo__inner.container
         .promo__info
           h1.visually-hidden Ёжики - магазин ежиков
@@ -56,7 +54,7 @@ block main
       .container
         .request__inner
           h2 Заполните заявку и мы забронируем для Вас нового друга
-          form.request__form.form.js-form(action="#", method="POST")
+          form.request__form.form
             .form__inner.form__inner--top
               .form__radios.form__radios--target
                 input.visually-hidden(type="radio", name="target", id="target-1", checked)
@@ -74,10 +72,10 @@ block main
                 label(for="amount-3") Мне нужны 3-4 ёжика
                 input.visually-hidden(type="radio", name="amount", id="amount-4")
                 label(for="amount-4") Пока присматриваюсь
-            .form__inner.form__inner--bottom
-              input(type="text", name="name", placeholder="Ваше имя")
-              input(type="tel", name="tel", placeholder="Ваш телефон")
-              input(type="email", name="email", placeholder="Ваш e-mail")
+            .form__inner.form__inner--bottom.js-form
+              input(type="text", name="name", placeholder="Ваше имя", data-error="Введите не менее одного символа")
+              input(type="tel", name="tel", placeholder="Ваш телефон", data-error="Введите валидный номер телефона")
+              input(type="email", name="email", placeholder="Ваш e-mail", data-error="Введите валидный адрес почты")
               textarea(name="comment", cols="30", rows="10", placeholder="Комментарий к заявке")
             button.button(type="submit") Купить ёжика
 
@@ -93,7 +91,5 @@ block main
 
 
 block modals
-  +modal("modal--feedback")
-    +modal-feedback()
   +modal("modal--success modal--no-scale modal--fit-content")
     +modal-success()
