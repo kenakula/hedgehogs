@@ -33,17 +33,18 @@ mixin header(currentPage, headerMod)
     };
 
     const logo = {
-      path: 'svg',
-      image: 'logo',
-      format: 'svg',
-      altText: 'логотип сайта',
+      path: 'content',
+      image: 'logo-header',
+      format: 'png',
+      width: 121,
+      height: 56,
     };
 
   header(class=(headerMod) ? "header header--" + headerMod : "header")
     .header__wrapper.container.container--wide
       if (currentPage === "main")
         a.header__logo
-          +imgSvg(logo)
+          +img(logo)
       else
         a.header__logo(href="main.html")
           +imgSvg(logo)

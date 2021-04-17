@@ -216,6 +216,9 @@
     button {
       @include button-reset;
 
+      position: relative;
+      bottom: 5px;
+      right: 5px;
       width: 40px;
       height: 40px;
       outline: none;
