@@ -16,6 +16,8 @@ block main
   main
     section.promo
       .promo__bg
+        .promo__hedgehog.promo__hedgehog--left
+        .promo__hedgehog.promo__hedgehog--right
       .promo__inner.container
         .promo__info
           h1.visually-hidden Ёжики - магазин ёжиков
@@ -33,10 +35,6 @@ block main
                   +icon(icon.name, icon.width, icon.height)
                 h3.promo__list-title !{item.title}
                 p.promo__list-text !{item.text}
-      .promo__img.promo__img--left
-        +img(promoHedgehog1)
-      .promo__img.promo__img--right
-        +img(promoHedgehog2)
 
     section.slider-block
       h2.visually-hidden Наши ёжики

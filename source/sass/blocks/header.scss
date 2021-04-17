@@ -5,10 +5,8 @@
   z-index: $header-index;
   top: 0;
   left: 0;
+  padding: 20px 0;
   width: 100vw;
-  padding-top: 26px;
-  padding-bottom: 20px;
-  min-height: 135px;
 
   .is-scrolled & {
     background-color: $color-default-white;
@@ -57,15 +55,13 @@
 
   &__nav {
     margin-left: auto;
-    align-self: stretch;
-    padding-top: 18px;
+    align-self: center;
   }
 
   &__phones {
     align-items: stretch;
     margin-right: 4.444%;
     margin-left: 7.5%;
-    padding-top: 8px;
 
     @include viewport--lg {
       margin-right: 2.5%;
@@ -146,7 +142,6 @@
 
   &__cart {
     position: relative;
-    margin-top: 16px;
 
     button {
       @include button-reset;
