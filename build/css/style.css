@@ -1977,7 +1977,7 @@ button,
       background-color: #e2f0df; }
       .promo__list-item .promo__list-icon svg {
         fill: none; }
-    .promo__list-item h3 {
+    .promo__list-item .promo__list-title {
       font-size: 1rem;
       line-height: 1.1875rem;
       margin: 0;

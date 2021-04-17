@@ -33,7 +33,7 @@ block main
                 .promo__list-icon
                   - const icon = item.icon;
                   +icon(icon.name, icon.width, icon.height)
-                h3.promo__list-title !{item.title}
+                p.promo__list-title !{item.title}
                 p.promo__list-text !{item.text}
 
     section.slider-block

@@ -16,7 +16,7 @@ mixin card(data)
       +img(img)
     span.card__discount !{discount} %
     .card__tooltip.js-card-tooltip
-      button.js-card-tooltip-button(type="button")
+      button.js-card-tooltip-button(type="button", aria-label="Показать дополнительную информацию")
         +icon('icon-info', 37, 37)
       .card__tooltip-content.js-card-tooltip-content
         div
@@ -26,5 +26,5 @@ mixin card(data)
           +icon('icon-heart', 30, 30)
           span 1235
     .card__button
-      button(type="button")
+      button(type="button", aria-label="Добавить в корзину")
         +icon('icon-plus', 40, 40)
