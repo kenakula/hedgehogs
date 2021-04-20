@@ -64,10 +64,8 @@ mixin header(currentPage, headerMod)
               span.header__phones-icon
                 +icon("icon-phone", 32, 32)
               | +7 (965) 569-89-98
-      .header__cart
-        button(type="button", id="cart-button")
-          +icon("icon-basket", 45, 38)
-          span 1
+      +cart().header__cart
+
 
 mixin main-nav-item(item)
   li

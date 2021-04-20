@@ -1,0 +1,44 @@
+-
+  const cartItems = [
+    {
+      name: 'ёжик “Евгений”',
+      count: '1',
+      price: 1500,
+      img: {
+        path: 'content',
+        image: 'content-img-1',
+        format: 'png',
+        width: 363,
+        height: 265,
+        altText: 'фотография ёжика',
+      },
+    },
+  ];
+
+mixin cart()
+  .js-cart&attributes(attributes)
+    button.js-cart-btn(type="button", id="cart-button")
+      +icon("icon-basket", 45, 38)
+      span 1
+    .cart.js-cart-content
+      .cart__inner
+        h2.cart__title Корзина
+        ul.cart__list
+          //- each item in cartItems
+          //-   li.cart__item
+          //-     button.cart__delete-btn(type="button", aria-label="удалить из корзины")
+          //-       +icon('icon-close', 10, 10)
+          //-     +img(item.img)
+          //-     p.cart__item-title !{item.name}
+          //-     .cart__count
+          //-       span !{item.count}
+      a.button.button--small(type="button") Оформить
+    template#cart-item-template
+      li.cart__item
+        button.cart__delete-btn(type="button", aria-label="удалить из корзины")
+          svg(width="10", height="10", aria-hidden="true")
+            use(xlink:href="#icon-close")
+        img(src="/", srcset="/", alt="")
+        p.cart__item-title название
+        .cart__count
+          span 1

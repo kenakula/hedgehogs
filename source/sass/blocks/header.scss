@@ -106,6 +106,10 @@
               box-shadow: 8px 8px 20px 0 $color-shadow, -4px -4px 20px 0 $color-default-white;
             }
           }
+
+          &:active {
+            color: rgba($color: $color-blue-stone, $alpha: 0.5);
+          }
         }
 
         @include viewport--md {
@@ -143,9 +147,11 @@
   &__cart {
     position: relative;
 
-    button {
+    & > button {
       @include button-reset;
       @include transition(opacity);
+
+      outline: none;
 
       span {
         @include font(10, 12);
@@ -162,11 +168,16 @@
         background-color: $color-sandy;
         font-family: $font-main-bold;
         font-weight: 700;
+        opacity: 0;
       }
 
       @include min-desktop {
         &:hover {
           opacity: 0.7;
+        }
+
+        &:active {
+          opacity: 0.5;
         }
       }
     }
@@ -174,7 +185,7 @@
     @include viewport--sm {
       margin-top: 0;
 
-      button {
+      & > button {
         svg {
           width: 32px;
           height: 27px;

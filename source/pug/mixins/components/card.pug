@@ -22,9 +22,9 @@ mixin card(data)
         div
           +icon('icon-syringe', 30, 30)
           span привит
-        div
+        button.btn-reset.js-like-btn(type="button", aria-label="лайков у ёжика")
           +icon('icon-heart', 30, 30)
-          span 1235
+          span.js-like-count 1235
     .card__button
-      button(type="button", aria-label="Добавить в корзину")
+      button.js-add-to-cart(type="button", aria-label="Добавить в корзину")
         +icon('icon-plus', 40, 40)
