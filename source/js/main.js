@@ -7,6 +7,7 @@ import {slider} from './modules/slider';
 import {pageScroll} from './modules/page-scroll';
 import {formsValidation} from './modules/form-validation';
 import {cardTooltip} from './modules/card-tooltip';
+import {parallax} from './modules/parallax';
 
 // Utils
 // ---------------------------------
@@ -23,3 +24,4 @@ slider();
 pageScroll();
 formsValidation();
 cardTooltip();
+parallax();

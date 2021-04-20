@@ -16,8 +16,8 @@ block main
   main
     section.promo
       .promo__bg
-        .promo__hedgehog.promo__hedgehog--left
-        .promo__hedgehog.promo__hedgehog--right
+        .promo__hedgehog.promo__hedgehog--left.js-hedgehog
+        .promo__hedgehog.promo__hedgehog--right.js-hedgehog
       .promo__inner.container
         .promo__info
           h1.visually-hidden Ёжики - магазин ёжиков
@@ -26,7 +26,7 @@ block main
           p.promo__subtitle Тоже любят молоко
           small.promo__small Заведите себе ёжика. Он всегда выслушает, не будет мяукать в 5 утра и царапать вашу мебель.
           button.button.promo__button(type="button") Купить ёжика
-        .promo__list
+        .promo__list.js-promo-list
           ul
             each item in promoList
               li.promo__list-item
