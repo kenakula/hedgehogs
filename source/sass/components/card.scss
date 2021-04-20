@@ -170,6 +170,31 @@
       }
     }
 
+    & > button {
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-right: 5px;
+        fill: $color-blue-stone;
+      }
+
+      span {
+        color: $color-blue-stone;
+      }
+
+      &:active {
+        opacity: 0.5;
+      }
+
+      &.active {
+        svg {
+          stroke: tomato;
+          fill: tomato;
+        }
+      }
+    }
+
     .card__tooltip.active & {
       z-index: 1;
       opacity: 1;

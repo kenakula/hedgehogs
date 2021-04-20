@@ -2653,6 +2653,23 @@ button,
         margin-right: 5px; }
       .card__tooltip-content > div span {
         color: #195557; }
+    .card__tooltip-content > button {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .card__tooltip-content > button svg {
+        margin-right: 5px;
+        fill: #195557; }
+      .card__tooltip-content > button span {
+        color: #195557; }
+      .card__tooltip-content > button:active {
+        opacity: 0.5; }
+      .card__tooltip-content > button.active svg {
+        stroke: tomato;
+        fill: tomato; }
     .card__tooltip.active .card__tooltip-content {
       z-index: 1;
       opacity: 1;
