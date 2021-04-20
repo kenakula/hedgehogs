@@ -59,6 +59,10 @@
     min-width: 199px;
   }
 
+  &--small {
+    min-width: 150px;
+  }
+
   @include viewport--sm {
     min-width: 281px;
     min-height: 59px;

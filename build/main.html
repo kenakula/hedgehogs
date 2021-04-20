@@ -101,12 +101,29 @@
                     </svg></span>+7 (965) 569-89-98</a></li>
             </ul>
           </div>
-          <div class="header__cart">
-            <button type="button" id="cart-button">
+          <div class="js-cart header__cart">
+            <button class="js-cart-btn" type="button" id="cart-button">
               <svg width="45" height="38" aria-hidden="true">
                 <use xlink:href="#icon-basket"></use>
               </svg><span>1</span>
             </button>
+            <div class="cart js-cart-content">
+              <div class="cart__inner">
+                <h2 class="cart__title">Корзина</h2>
+                <ul class="cart__list"></ul>
+              </div><a class="button button--small" type="button">Оформить</a>
+            </div>
+            <template id="cart-item-template">
+              <li class="cart__item">
+                <button class="cart__delete-btn" type="button" aria-label="удалить из корзины">
+                  <svg width="10" height="10" aria-hidden="true">
+                    <use xlink:href="#icon-close"></use>
+                  </svg>
+                </button><img src="/" srcset="/" alt=""/>
+                <p class="cart__item-title">название</p>
+                <div class="cart__count"><span>1</span></div>
+              </li>
+            </template>
           </div>
         </div>
       </header>
@@ -193,7 +210,7 @@
                     </div>
                   </div>
                   <div class="card__button">
-                    <button type="button" aria-label="Добавить в корзину">
+                    <button class="js-add-to-cart" type="button" aria-label="Добавить в корзину">
                       <svg width="40" height="40" aria-hidden="true">
                         <use xlink:href="#icon-plus"></use>
                       </svg>
@@ -231,7 +248,7 @@
                     </div>
                   </div>
                   <div class="card__button">
-                    <button type="button" aria-label="Добавить в корзину">
+                    <button class="js-add-to-cart" type="button" aria-label="Добавить в корзину">
                       <svg width="40" height="40" aria-hidden="true">
                         <use xlink:href="#icon-plus"></use>
                       </svg>
@@ -269,7 +286,7 @@
                     </div>
                   </div>
                   <div class="card__button">
-                    <button type="button" aria-label="Добавить в корзину">
+                    <button class="js-add-to-cart" type="button" aria-label="Добавить в корзину">
                       <svg width="40" height="40" aria-hidden="true">
                         <use xlink:href="#icon-plus"></use>
                       </svg>
@@ -307,7 +324,7 @@
                     </div>
                   </div>
                   <div class="card__button">
-                    <button type="button" aria-label="Добавить в корзину">
+                    <button class="js-add-to-cart" type="button" aria-label="Добавить в корзину">
                       <svg width="40" height="40" aria-hidden="true">
                         <use xlink:href="#icon-plus"></use>
                       </svg>
@@ -345,7 +362,7 @@
                     </div>
                   </div>
                   <div class="card__button">
-                    <button type="button" aria-label="Добавить в корзину">
+                    <button class="js-add-to-cart" type="button" aria-label="Добавить в корзину">
                       <svg width="40" height="40" aria-hidden="true">
                         <use xlink:href="#icon-plus"></use>
                       </svg>
@@ -383,7 +400,7 @@
                     </div>
                   </div>
                   <div class="card__button">
-                    <button type="button" aria-label="Добавить в корзину">
+                    <button class="js-add-to-cart" type="button" aria-label="Добавить в корзину">
                       <svg width="40" height="40" aria-hidden="true">
                         <use xlink:href="#icon-plus"></use>
                       </svg>
