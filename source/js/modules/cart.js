@@ -173,6 +173,7 @@ const cart = () => {
   }
 
   carts.forEach((el) => {
+    // eslint-disable-next-line no-new
     new Cart(el);
   });
 };
