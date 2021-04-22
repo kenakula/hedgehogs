@@ -257,6 +257,10 @@
         height: 100%;
         clip-path: none;
       }
+
+      &:active {
+        opacity: 0.1;
+      }
     }
 
     @include viewport--sm {

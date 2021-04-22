@@ -108,6 +108,11 @@
               </svg><span>1</span>
             </button>
             <div class="cart js-cart-content">
+              <button class="cart__close js-close-cart" type="button" aria-label="удалить из корзины">
+                <svg width="15" height="15" aria-hidden="true">
+                  <use xlink:href="#icon-close"></use>
+                </svg>
+              </button>
               <div class="cart__inner">
                 <h2 class="cart__title">Корзина</h2>
                 <ul class="cart__list"></ul>
@@ -121,7 +126,9 @@
                   </svg>
                 </button><img src="/" srcset="/" alt=""/>
                 <p class="cart__item-title">название</p>
-                <div class="cart__count"><span>1</span></div>
+                <div class="cart__count">
+                  <input type="number" value="1"/>
+                </div>
               </li>
             </template>
           </div>

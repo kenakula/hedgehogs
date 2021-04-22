@@ -1325,6 +1325,8 @@ button,
       transition: opacity 0.3s ease;
       outline: none; }
       .header__cart > button span {
+        -webkit-transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease;
         font-size: 0.625rem;
         line-height: 0.75rem;
         position: absolute;
@@ -1351,6 +1353,8 @@ button,
           opacity: 0.7; }
         .header__cart > button:active {
           opacity: 0.5; } }
+      .header__cart > button.has-items span {
+        opacity: 1; }
     @media (max-width: 767px) {
       .header__cart {
         margin-top: 0; }
@@ -2741,7 +2745,9 @@ button,
         width: 100%;
         height: 100%;
         -webkit-clip-path: none;
-                clip-path: none; } }
+                clip-path: none; }
+      .card__button:active {
+        opacity: 0.1; } }
     @media (max-width: 767px) {
       .card__button {
         width: 50px;
@@ -3065,10 +3071,6 @@ button,
         margin-bottom: 0; } }
 
 .cart {
-  -ms-overflow-style: none;
-  /* Internet Explorer 10+ */
-  scrollbar-width: none;
-  /* Firefox */
   position: absolute;
   top: 90px;
   right: 0;
@@ -3079,7 +3081,7 @@ button,
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 20px;
+  padding: 20px 0;
   width: 350px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -3092,15 +3094,15 @@ button,
   -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
-  overflow-y: scroll; }
-  .cart::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    background: transparent;
-    /* make scrollbar transparent */ }
+  transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease; }
   .cart > .button {
-    margin-top: auto; }
+    margin-top: auto;
+    min-height: 40px;
+    max-width: 150px;
+    min-width: 150px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center; }
   .cart.active {
     z-index: 10;
     opacity: 1;
@@ -3119,8 +3121,22 @@ button,
   .cart__list {
     margin: 0;
     padding: 0;
-    list-style: none; }
+    list-style: none;
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+    padding: 10px 20px;
+    max-height: 320px;
+    overflow-y: scroll; }
+    .cart__list::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      background: transparent;
+      /* make scrollbar transparent */ }
   .cart__item {
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3150,6 +3166,8 @@ button,
       @media (max-width: 767px) {
         .cart__item-title {
           font-size: 16px; } }
+    .cart__item--deleted {
+      opacity: 0; }
   .cart__count {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3162,7 +3180,56 @@ button,
             align-items: center;
     margin-left: auto;
     border: 1px solid #c2ccca;
+    padding: 0 5px;
     min-width: 30px; }
+    .cart__count input {
+      max-width: 40px;
+      border: none;
+      text-align: center;
+      outline: none; }
+  .cart__close {
+    display: block;
+    border: none;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    right: -20px;
+    top: -10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    -webkit-box-shadow: 4px 4px 20px 0 #c2ccca, -8px -8px 20px 0 #ffffff;
+            box-shadow: 4px 4px 20px 0 #c2ccca, -8px -8px 20px 0 #ffffff;
+    outline: none; }
+    .cart__close svg {
+      margin-top: 3px; }
+    @media (min-width: 1024px) {
+      .cart__close:hover {
+        opacity: 0.7; }
+      .cart__close:active {
+        opacity: 0.5; } }
+    @media (max-width: 767px) {
+      .cart__close {
+        right: -10px;
+        top: -10px;
+        width: 20px;
+        height: 20px; }
+        .cart__close svg {
+          width: 10px;
+          height: 10px; } }
   .cart__delete-btn {
     display: block;
     border: none;
