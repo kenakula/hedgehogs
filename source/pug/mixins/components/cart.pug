@@ -21,17 +21,12 @@ mixin cart()
       +icon("icon-basket", 45, 38)
       span 1
     .cart.js-cart-content
+      button.cart__close.js-close-cart(type="button", aria-label="удалить из корзины")
+        svg(width="15", height="15", aria-hidden="true")
+          use(xlink:href="#icon-close")
       .cart__inner
         h2.cart__title Корзина
         ul.cart__list
-          //- each item in cartItems
-          //-   li.cart__item
-          //-     button.cart__delete-btn(type="button", aria-label="удалить из корзины")
-          //-       +icon('icon-close', 10, 10)
-          //-     +img(item.img)
-          //-     p.cart__item-title !{item.name}
-          //-     .cart__count
-          //-       span !{item.count}
       a.button.button--small(type="button") Оформить
     template#cart-item-template
       li.cart__item
@@ -41,4 +36,4 @@ mixin cart()
         img(src="/", srcset="/", alt="")
         p.cart__item-title название
         .cart__count
-          span 1
+          input(type="number", value="1")

@@ -5,67 +5,170 @@ const cart = () => {
     constructor(el) {
       this.addToCartButtons = document.querySelectorAll('.js-add-to-cart');
 
+      this.cartActiveClass = 'active';
+      this.cartHasItemsClass = 'has-items';
+
       this.block = el;
       this.openButton = this.block.querySelector('.js-cart-btn');
-      this.cartCounter = this.openButton.querySelector('span');
+      this.closeButton = this.block.querySelector('.js-close-cart');
       this.cartContent = this.block.querySelector('.js-cart-content');
-      this.cartItemTemplate = this.block.querySelector('#cart-item-template');
       this.cartList = this.block.querySelector('.cart__list');
 
+      this.cartItemTmp = this.block.querySelector('#cart-item-template').content;
+
+      this.renderCard = this.renderCard.bind(this);
+      this.countItemsInCart = this.countItemsInCart.bind(this);
+      this.increaseItemCount = this.increaseItemCount.bind(this);
+      this.deleteItemFromCart = this.deleteItemFromCart.bind(this);
+
       this.openButton.addEventListener('click', this.openCart.bind(this));
+      this.closeButton.addEventListener('click', this.closeCart.bind(this));
       this.addToCartButtons.forEach((btn) => {
-        btn.addEventListener('click', this.addToCart.bind(this));
+        btn.addEventListener('click', this.addItemToCart.bind(this));
       });
+      document.addEventListener('DOMContentLoaded', this.initCartItems.bind(this));
     }
 
-    openCart(evt) {
-      const target = evt.target.closest('.js-cart-btn');
+    // cчитает и выводит количество товаров в корзине
+    countItemsInCart() {
+      const items = this.cartList.querySelectorAll('.cart__item');
 
-      if (target) {
-        this.cartContent.classList.toggle('active');
+      if (items.length) {
+        this.openButton.classList.add(this.cartHasItemsClass);
+        this.openButton.querySelector('span').textContent = items.length;
+      } else {
+        this.openButton.classList.remove(this.cartHasItemsClass);
       }
     }
 
-    addToCart(evt) {
+    // сохраняет товары в корзине в localstorage
+    saveToLocal(itemObj) {
+      const currentData = localStorage.getItem('cart-items');
+      let obj = {};
+
+      if (currentData) {
+        obj = JSON.parse(currentData);
+        obj[itemObj.id] = itemObj;
+      } else {
+        obj = {
+          [itemObj.id]: itemObj,
+        };
+      }
+
+      localStorage.setItem('cart-items', JSON.stringify(obj));
+    }
+
+    // создает объект товара
+    MakeItemObj(item) {
+      this.title = item.querySelector('.card__title').textContent;
+      this.img = {
+        src: item.querySelector('.card__img img').getAttribute('src'),
+        srcset: item.querySelector('.card__img img').getAttribute('srcset'),
+      };
+      this.id = item.dataset.id;
+      this.price = item.querySelector('.card__prices').dataset.price;
+    }
+
+    // настраивает элемент товара корзины
+    setItem(node, obj) {
+      node.querySelector('.cart__item-title').textContent = obj.title;
+      node.querySelector('img').setAttribute('src', obj.img.src);
+      node.querySelector('img').setAttribute('srcset', obj.img.srcset);
+      node.querySelector('.cart__item').setAttribute('data-price', obj.price);
+      node.querySelector('.cart__item').setAttribute('data-id', obj.id);
+
+      const deleteBtn = node.querySelector('.cart__delete-btn');
+      deleteBtn.addEventListener('click', this.deleteItemFromCart);
+
+      return node;
+    }
+
+    // рендерит элемент товара корзины
+    renderCard(obj) {
+      const tmp = this.cartItemTmp.cloneNode(true);
+      const newItem = this.setItem(tmp, obj);
+      this.cartList.appendChild(newItem);
+    }
+
+    // увеличивает количество предметов при добавлении повтора
+    increaseItemCount(id) {
+      const item = this.cartList.querySelector(`[data-id="${id}"]`);
+
+      const currentCount = +item.querySelector('.cart__count input').value;
+      item.querySelector('.cart__count input').value = currentCount + 1;
+    }
+
+    // обработчик добавления товара в корзину
+    addItemToCart(evt) {
       const target = evt.target.closest('.js-add-to-cart');
 
       if (!target) {
         return;
       }
 
-      const cardItem = target.closest('.card');
-      const cardTitle = cardItem.querySelector('.card__title').textContent;
-      const cardImgSrc = cardItem.querySelector('.card__img img').getAttribute('src');
-      const cardImgSrcset = cardItem.querySelector('.card__img img').getAttribute('srcset');
+      const item = target.closest('.card');
+      const itemObj = new this.MakeItemObj(item);
 
-      const template = this.cartItemTemplate.content.cloneNode(true);
+      const itemsInCart = JSON.parse(localStorage.getItem('cart-items'));
 
-      const newItem = this.setCartItem(cardTitle, cardImgSrc, cardImgSrcset, cardTitle, template);
-      this.cartList.appendChild(newItem);
+      if (itemsInCart && itemObj.id in itemsInCart) {
+        this.increaseItemCount(itemObj.id);
+      } else {
+        this.renderCard(itemObj);
+        this.saveToLocal(itemObj);
+      }
+
+      this.countItemsInCart();
     }
 
-    clearItemFromCart(evt) {
+    deleteItemFromCart(evt) {
       const target = evt.target.closest('.cart__delete-btn');
 
-      if (target) {
-        const item = target.closest('.cart__item');
+      if (!target) {
+        return;
+      }
+
+      const savedItems = JSON.parse(localStorage.getItem('cart-items'));
+      const item = target.closest('.cart__item');
+      const itemId = item.dataset.id;
+
+      item.classList.add('cart__item--deleted');
+      setTimeout(() => {
         item.remove();
+        this.countItemsInCart();
+      }, 300);
+      delete savedItems[itemId];
+
+      localStorage.setItem('cart-items', JSON.stringify(savedItems));
+    }
+
+    // открывает корзину
+    openCart(evt) {
+      const target = evt.target.closest('.js-cart-btn');
+
+      if (target) {
+        this.cartContent.classList.toggle(this.cartActiveClass);
       }
     }
 
-    setCartItem(name, src, srcset, alt, template) {
-      const title = template.querySelector('.cart__item-title');
-      const image = template.querySelector('img');
-      const cartDeleteBtn = template.querySelector('.cart__delete-btn');
+    // закрывает корзину
+    closeCart() {
+      this.cartContent.classList.remove(this.cartActiveClass);
+    }
 
-      image.src = src;
-      image.srcset = srcset;
-      image.alt = alt;
-      title.textContent = name;
+    // смотрит на сохраненные в localstorage элементы корзины
+    initCartItems() {
+      const savedItems = JSON.parse(localStorage.getItem('cart-items'));
 
-      cartDeleteBtn.addEventListener('click', this.clearItemFromCart);
+      if (savedItems) {
+        for (let key in savedItems) {
+          if (savedItems[key]) {
+            this.renderCard(savedItems[key]);
+          }
+        }
+      }
 
-      return template;
+      this.countItemsInCart();
     }
   }
 
