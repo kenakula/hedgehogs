@@ -37,6 +37,7 @@
     flex-wrap: wrap;
 
     label {
+      display: flex;
       margin-right: 14px;
       min-height: 25px;
       font-family: $font-title-bold;

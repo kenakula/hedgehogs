@@ -230,8 +230,8 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    width: 82px;
-    height: 82px;
+    width: 100px;
+    height: 100px;
     background-color: $color-default-white;
     border-radius: 0 0 20px 0;
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
@@ -242,8 +242,8 @@
       @include button-reset;
 
       position: relative;
-      bottom: 5px;
-      right: 5px;
+      bottom: 10px;
+      right: 10px;
       width: 40px;
       height: 40px;
       outline: none;
@@ -264,13 +264,13 @@
     }
 
     @include viewport--sm {
-      width: 50px;
-      height: 50px;
+      width: 70px;
+      height: 70px;
 
       button {
         position: absolute;
-        bottom: -10px;
-        right: -10px;
+        bottom: 0;
+        right: 0;
       }
 
       svg {
@@ -305,6 +305,19 @@
     }
   }
 
+  &--ghost {
+    position: absolute;
+    z-index: 1000;
+    opacity: 0.3;
+    // transition: transform $default-transition-settings, opacity $default-transition-settings, left $default-transition-settings, top $default-transition-settings;
+    animation: fly-to-cart 1.5s ease;
+    animation-fill-mode: forwards;
+
+    @include viewport--sm {
+      animation-duration: 2s;
+    }
+  }
+
   @include viewport--lg {
     max-width: 539px;
   }
@@ -318,5 +331,15 @@
     padding-bottom: 15px;
     max-width: 75.93vw;
     min-height: 318px;
+  }
+}
+
+@keyframes fly-to-cart {
+  10% {
+    transform: translate(0, -200px) scale(0.7);
+  }
+
+  100% {
+    transform: translate(1000px, -700px) scale(0.2);
   }
 }

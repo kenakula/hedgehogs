@@ -1,3 +1,5 @@
+import {flyToCart} from './fly-to-cart';
+
 const cart = () => {
   const carts = document.querySelectorAll('.js-cart');
 
@@ -118,6 +120,7 @@ const cart = () => {
         this.saveToLocal(itemObj);
       }
 
+      flyToCart(item);
       this.countItemsInCart();
     }
 

@@ -1,8 +1,9 @@
-mixin card(data)
+mixin card(data, mod)
   - const {title, text, price, tooltip, img, hasDiscount, discount, id} = data;
   - const priceFormat = (num) => { return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') + '' };
+  - const modClass = `slider-block__card--${mod}`;
 
-  .swiper-slide.card(data-id=id)&attributes(attributes)
+  .swiper-slide.card(data-id=id, class=modClass)&attributes(attributes)
     .card__inner
       h3.card__title !{title}
       p.card__text !{text}
