@@ -24,12 +24,12 @@
   }
 
   &__card {
-    &:nth-child(odd) {
-      background-color: $color-sandy;
+    &--green {
+      background-color: $color-zanah;
     }
 
-    &:nth-child(even) {
-      background-color: $color-zanah;
+    &--yellow {
+      background-color: $color-sandy;
     }
 
     @include viewport--sm {

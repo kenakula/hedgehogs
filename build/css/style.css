@@ -2081,10 +2081,10 @@ button,
         padding-left: 20px; } }
   .slider-block__list {
     padding-top: 10px; }
-  .slider-block__card:nth-child(odd) {
-    background-color: #ffedcd; }
-  .slider-block__card:nth-child(even) {
+  .slider-block__card--green {
     background-color: #e2f0df; }
+  .slider-block__card--yellow {
+    background-color: #ffedcd; }
   @media (max-width: 767px) {
     .slider-block__card:last-child {
       margin-right: 35px; } }
@@ -2229,6 +2229,30 @@ button,
       .disclaimer p {
         margin: 0;
         text-align: left; } }
+
+.page-404 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%; }
+  .page-404__title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: "Cormorant-Infant-bold", "Georgia", serif;
+    font-size: 56px;
+    color: #195557; }
+    .page-404__title img {
+      margin-left: 30px; }
 
 .button {
   display: block;
@@ -2717,8 +2741,8 @@ button,
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    width: 82px;
-    height: 82px;
+    width: 100px;
+    height: 100px;
     background-color: #ffffff;
     border-radius: 0 0 20px 0;
     -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
@@ -2733,8 +2757,8 @@ button,
       background-color: rgba(255, 255, 255, 0);
       cursor: pointer;
       position: relative;
-      bottom: 5px;
-      right: 5px;
+      bottom: 10px;
+      right: 10px;
       width: 40px;
       height: 40px;
       outline: none;
@@ -2750,12 +2774,12 @@ button,
         opacity: 0.1; } }
     @media (max-width: 767px) {
       .card__button {
-        width: 50px;
-        height: 50px; }
+        width: 70px;
+        height: 70px; }
         .card__button button {
           position: absolute;
-          bottom: -10px;
-          right: -10px; }
+          bottom: 0;
+          right: 0; }
         .card__button svg {
           width: 35px;
           height: 35px; } }
@@ -2787,6 +2811,18 @@ button,
         left: 31px;
         min-width: 48px;
         min-height: 21px; } }
+  .card--ghost {
+    position: absolute;
+    z-index: 1000;
+    opacity: 0.3;
+    -webkit-animation: fly-to-cart 1.5s ease;
+            animation: fly-to-cart 1.5s ease;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards; }
+    @media (max-width: 767px) {
+      .card--ghost {
+        -webkit-animation-duration: 2s;
+                animation-duration: 2s; } }
   @media (max-width: 1439px) {
     .card {
       max-width: 539px; } }
@@ -2799,6 +2835,22 @@ button,
       padding-bottom: 15px;
       max-width: 75.93vw;
       min-height: 318px; } }
+
+@-webkit-keyframes fly-to-cart {
+  10% {
+    -webkit-transform: translate(0, -200px) scale(0.7);
+            transform: translate(0, -200px) scale(0.7); }
+  100% {
+    -webkit-transform: translate(1000px, -700px) scale(0.2);
+            transform: translate(1000px, -700px) scale(0.2); } }
+
+@keyframes fly-to-cart {
+  10% {
+    -webkit-transform: translate(0, -200px) scale(0.7);
+            transform: translate(0, -200px) scale(0.7); }
+  100% {
+    -webkit-transform: translate(1000px, -700px) scale(0.2);
+            transform: translate(1000px, -700px) scale(0.2); } }
 
 .form {
   display: -webkit-box;
@@ -2847,6 +2899,9 @@ button,
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
     .form__radios label {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
       margin-right: 14px;
       min-height: 25px;
       font-family: "Cormorant-Infant-bold", "Georgia", serif;

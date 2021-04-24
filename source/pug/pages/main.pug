@@ -41,8 +41,9 @@ block main
       .slider-block__wrapper.container.js-slider-block-container#mainSlider
         .slider-block__container.swiper-container
           .slider-block__list.swiper-wrapper
-            each item in mainSlider
-              +card(item).slider-block__card
+            each item, i in mainSlider
+              - const mod = i % 2 === 0 ? 'yellow' : 'green';
+              +card(item, mod).slider-block__card
         button.slider-block__button.slider-block__button--prev(type="button")
           +icon('icon-arrow-left', 24, 24)
         button.slider-block__button.slider-block__button--next(type="button")

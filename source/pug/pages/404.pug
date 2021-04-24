@@ -1,0 +1,28 @@
+extends ../base/layout
+
+block data
+
+block variables
+  - var title = "ЁЖИКИ | Интернет магазин колючих котиков";
+  - var wrapperMod = "";
+  - var hasHeader = true;
+  - var headerMod = "";
+  - var hasFooter = true;
+  - var footerMod = "";
+  - var currentPage = ""; //- для остальных страниц пишем либо пустую строку, либо индекс
+
+  -
+    const icon = {
+      path: 'svg',
+      image: 'sad-face',
+      format: 'svg',
+      width: 50,
+      height: 50,
+      altText: 'грустненько',
+    }
+
+block main
+  main.page-404
+    section
+      h1.page-404__title Нет странички
+        +imgSvg(icon)
